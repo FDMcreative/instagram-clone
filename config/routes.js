@@ -3,6 +3,7 @@ const secureRoute = require('../lib/secureRoute');
 const sessions = require('../controllers/sessions');
 const registrations = require('../controllers/registrations');
 const upload = require('../lib/upload');
+const oauth = require('../controllers/oauth');
 
 router.get('/', (req, res) => res.render('statics/index'));
 
@@ -22,6 +23,9 @@ router.route('/login')
 
 router.route('/logout')
   .get(sessions.delete);
+
+router.route('/oauth/github')
+  .get(oauth.github);
 
 router.all('*', (req, res) => res.notFound());
 

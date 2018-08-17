@@ -3,10 +3,11 @@ const bcrypt = require('bcrypt');
 const s3 = require('../lib/s3');
 
 const userSchema = new mongoose.Schema({
-  username: { type: String },
-  email: { type: String, required: true },
+  username: { type: String, required: true },
+  email: { type: String },
   image: { type: String },
-  password: { type: String, required: true }
+  password: { type: String },
+  githubId: { type: Number }
 });
 
 userSchema
@@ -23,7 +24,12 @@ userSchema
   });
 //lifecycle hook - mongoose middleware
 userSchema.pre('validate', function checkPassword(next) {
-  if(!this._passwordConfirmation || this._passwordConfirmation !== this.password) this.invalidate('passwordConfirmation', 'does not match');
+  if(!this.password && !this.githubId) {
+    this.invalidate('password', 'required');
+  }
+  if(this.isModified('password') && this._passwordConfirmation !== this.password){
+    this.invalidate('passwordConfirmation', 'does not match');
+  }
   next();
 });
 
