@@ -1,9 +1,21 @@
-<div>
-  <h1><% user.username %></h1>
-  <img src="<%= user.image %>" alt="<%= user.username %>">
+<div class="row">
 
-  <form method="POST" action="/profile">
-    <input type="hidden" name="_method" value="DELETE">
-    <button>Delete Account</button>
-  </form>
+  <div class="col">
+
+    <img class="img-thumbnail" src="<%= user.imageSRC %>" alt="<%= user.username %>">
+
+  </div>
+
+  <div class="col">
+
+    <h1><%= user.username %></h1>
+    <h4><%= user.email %></h4>
+
+    <form method="POST" action="/profile">
+      <input type="hidden" name="_method" value="DELETE">
+      <button>Delete Account</button>
+    </form>
+
+  </div>
+
 </div>

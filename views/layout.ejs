@@ -14,11 +14,18 @@
 
   <body>
 
-    <% for(const type in messages) { %>
-      <div class="<%= type %>">
-        <h5><%= messages[type] %></h5>
-      </div>
-    <% } %>
+    <header>
+
+      <%- include ./partials/_navbar %>
+
+      <!-- MOVED in NAVBAR -->
+      <!-- <% for(const type in messages) { %>
+        <div class="<%= type %>">
+          <h5><%= messages[type] %></h5>
+        </div>
+      <% } %> -->
+
+    </header>
 
     <main class="container">
       <%- body %>

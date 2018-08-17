@@ -33,6 +33,10 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+function sessionsDelete(req, res) {
+  req.session.regenerate(() => res.redirect('/'));
+}
+
 module.exports = {
   new: newRoute,
   create: createRoute,

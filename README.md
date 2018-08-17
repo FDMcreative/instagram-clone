@@ -10,10 +10,16 @@
 
 -
 
-This is an instagram clone with login, profile page and image upload functionalities.
+This is an instagram clone (with some graphic modification).
+The following functionalities are present: register with a profile image, login, logout, user profile page and new images upload.
 
 -
 
 Difficulties:
 
-- 
+- Setting up AWS public bucket (policy) to store the uploaded images.
+- Recreating an instagram-clone user experience.
+
+Not working:
+
+- The .then() part of user deleteRoute is not working (res.unauthorized is not a function).

@@ -10,6 +10,13 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema
+  .virtual('imageSRC')
+  .get(function getImageSRC() {
+    if(!this.image) return null; //or a placeholder profile-image (to be set) in case the user doesn't upload any
+    return `https://s3.eu-central-1.amazonaws.com/w05d03-instagram-clone/${this.image}`;
+  });
+
+userSchema
   .virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation) {
     this._passwordConfirmation = passwordConfirmation;
@@ -25,6 +32,10 @@ userSchema.pre('save', function hashPassword(next) {
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
   }
   next();
+});
+
+userSchema.pre('remove', function removeImage(next) {
+  s3.deleteObject({ Key: this.image }, next);
 });
 
 userSchema.methods.validatePassword = function validatePassword(password) {

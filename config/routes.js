@@ -20,7 +20,7 @@ router.route('/login')
   .get(sessions.new)
   .post(sessions.create);
 
-router.route('/login')
+router.route('/logout')
   .get(sessions.delete);
 
 router.all('*', (req, res) => res.notFound());
