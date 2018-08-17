@@ -1,18 +1,51 @@
-<h1>Login</h1>
-
-
-<form method="POST" action="/login">
-
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" required>
+<div class="row justify-content-center">
+  <div id="left" class="col-5 text-center">
+    <img src="assets/images/phones.png" alt="phones">
   </div>
 
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
+  <div id="right" class="col-5 text-center align-self-center">
+
+    <div class="whiteBox">
+
+      <a href="/">
+        <img class="mx-auto d-block" src="assets/images/logo.png" alt="instagram logo">
+      </a>
+
+      <br>
+
+      <p>
+        Log in to see photos and videos from your friends.
+      </p>
+
+      <button type="button" class="btn btn-primary col-10">Log in with GitHub</button>
+
+      <p class="text-uppercase">Or</p>
+
+      <form class="col-11 text-center justify-content-center" method="POST" action="/login">
+
+        <div class="text-center form-group justify-content-center">
+          <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+        </div>
+
+        <button class="btn btn-primary">Login</button>
+
+      </form>
+
+    </div>
+
+    <p class="whiteBox">
+      Don't have an account? <a href="/register">Register</a>
+    </p>
+
+    <br>
+
+    <p>
+      Get the app.
+    </p>
+    <img src="assets/images/app-store.png">
+    <img src="assets/images/google-play.png">
+
   </div>
 
-  <button class="button">Login</button>
-
-</form>
+</div>

@@ -1,0 +1,51 @@
+/*background color = #fafafa*/
+/*button blue = #3897f0*/
+/*border color = #e6e6e6*/
+/*footer link color = #003569*/
+/*text grey color = #999*/
+
+body, input {
+  font-family: 'Karla', sans-serif;
+  background-color: #fafafa;
+}
+
+ul, li {
+
+}
+
+main {
+  border: 1px dotted red;
+  margin: 20px;
+}
+
+#right {
+
+}
+
+#footer {
+  border: 1px dotted blue;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  margin: 5px;
+  background-color: #fafafa;
+}
+
+button {
+  margin: 5px;
+}
+
+img {
+  margin: 5px;
+}
+
+.whiteBox {
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  padding: 15px;
+  margin: 5px;
+}
