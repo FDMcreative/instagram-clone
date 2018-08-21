@@ -4,8 +4,30 @@ const sessions = require('../controllers/sessions');
 const registrations = require('../controllers/registrations');
 const upload = require('../lib/upload');
 const oauth = require('../controllers/oauth');
+const photos = require('../controllers/photos');
 
 router.get('/', (req, res) => res.render('statics/index'));
+
+router.route('/photos')
+  .get(photos.index)
+  .post(secureRoute, photos.create);
+
+router.route('/photos/new')
+  .get(secureRoute, photos.new);
+
+router.route('/photos/:id')
+  .get(photos.show)
+  .put(secureRoute, photos.update)
+  .delete(secureRoute, photos.delete);
+
+router.route('/photos/:id/edit')
+  .get(secureRoute, photos.edit);
+
+router.route('/photos/:id/comments')
+  .post(secureRoute, photos.createComment);
+
+router.route('/photos/:id/comments/:commentId')
+  .delete(secureRoute, photos.deleteComment);
 
 router.route('/profile')
   .get(secureRoute, registrations.show);

@@ -1,0 +1,41 @@
+<h1>Photos</h1>
+
+<% if(locals.isAuthenticated) { %>
+  <a href="/photos/new" class="btn btn-primary">Add</a>
+<% } %>
+
+<div class="row">
+
+  <% photos.forEach((photo) => { %>
+
+    <div class="col-md-4">
+      <div class="card">
+      <div class ="card-img-top" style="background-image:url(<%= photo.image %>)" alt="<%= photo.caption %>" ></div>
+        <div class="card-block">
+
+          <a href="/photos/<%= photo.id %>">
+            <h4 class="card-title"><%= photo.caption %></h4>
+            <img src="<%= photo.image %>" alt="<%= photo.caption %>">
+          </a>
+
+          <p>
+            <% while(photo.stars--) { %> &star; <% } %>
+          </p>
+
+          <% if(locals.isAuthenticated) { %>
+
+            <a href="/photos/<%= photo.id %>/edit" class="btn btn-primary">Edit</a>
+
+            <form method="POST" action="/photos/<%= photo.id %>">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="btn btn-danger">Delete</button>
+            </form>
+
+          <% } %>
+
+        </div>
+      </div>
+    </div>
+  <% }) %>
+
+</div>

@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String },
   image: { type: String },
   password: { type: String },
-  githubId: { type: Number }
+  githubId: { type: Number },
+  photos: [{ type: String }]
 });
 
 userSchema
