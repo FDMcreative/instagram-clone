@@ -10,7 +10,7 @@ router.get('/', (req, res) => res.render('statics/index'));
 
 router.route('/photos')
   .get(photos.index)
-  .post(secureRoute, photos.create);
+  .post(upload.single('image'), photos.create);
 
 router.route('/photos/new')
   .get(secureRoute, photos.new);

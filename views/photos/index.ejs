@@ -1,8 +1,16 @@
-<h1>Photos</h1>
+<div class="row">
 
-<% if(locals.isAuthenticated) { %>
-  <a href="/photos/new" class="btn btn-primary">Add</a>
-<% } %>
+  <div class="col">
+    <h1>Photos</h1>
+  </div>
+
+  <div class="col">
+    <% if(locals.isAuthenticated) { %>
+      <a href="/photos/new" class="btn btn-primary">Upload a photo</a>
+    <% } %>
+  </div>
+
+</div>
 
 <div class="row">
 
@@ -15,14 +23,14 @@
 
           <a href="/photos/<%= photo.id %>">
             <h4 class="card-title"><%= photo.caption %></h4>
-            <img src="<%= photo.image %>" alt="<%= photo.caption %>">
+            <img class="img-thumbnail img-fluid" src="<%= photo.imageSRC %>" alt="<%= photo.caption %>">
           </a>
 
           <p>
             <% while(photo.stars--) { %> &star; <% } %>
           </p>
 
-          <% if(locals.isAuthenticated) { %>
+          <% if(locals.isAuthenticated && photo.ownedBy(user)) { %>
 
             <a href="/photos/<%= photo.id %>/edit" class="btn btn-primary">Edit</a>
 

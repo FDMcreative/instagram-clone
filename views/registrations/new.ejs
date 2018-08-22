@@ -21,9 +21,12 @@
         <div class="text-center form-group justify-content-center">
           <input type="text" class="form-control" name="username" id="username" placeholder="Username">
           <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Email">
-          <input type="file" class="form-control" name="profileImage" id="profileImage" placeholder="Profile Image">
           <input type="password" class="form-control" name="password" id="password" placeholder="Password">
           <input type="password" class="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="Password Confirmation">
+          <div>
+            <label for="image">Select a profile Image</label>
+            <input type="file" name="profileImage" id="profileImage" placeholder="Profile Image">
+          </div>
         </div>
         <button type="submit" class="btn btn-primary col">Next</button>
       </form>

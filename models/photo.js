@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const s3 = require('../lib/s3');
 
 const commentSchema = new mongoose.Schema({
@@ -20,6 +19,10 @@ const photoSchema = new mongoose.Schema({
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
   comments: [commentSchema]
 });
+
+photoSchema.methods.ownedBy = function ownedBy(user) {
+  return this.createdBy.id === user.id;
+};
 
 photoSchema
   .virtual('imageSRC')

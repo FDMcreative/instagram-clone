@@ -26,6 +26,13 @@ main {
   border: 1px dotted blue;
 }
 
+#leaveComment {
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  margin: 5px 0;
+  padding: 15px;
+}
+
 a {
   text-decoration: none;
 }
@@ -40,7 +47,7 @@ button {
 }
 
 img {
-  margin: 5px;
+  margin: 5px 0;
 }
 
 .whiteBox {

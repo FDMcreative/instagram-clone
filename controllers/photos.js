@@ -5,7 +5,7 @@ function indexRoute(req, res, next) {
     .find()
     .populate('createdBy')
     .exec()
-    .then((photo) => res.render('photos/index', { photos }))
+    .then((photos) => res.render('photos/index', { photos }))
     .catch(next);
 }
 
@@ -15,7 +15,9 @@ function newRoute(req, res) {
 
 function createRoute(req, res, next) {
 
-  req.body.createdBy = req.user;
+  req.body.createdBy = req.user; // N.B. without this line, it does not know who is the owner of the photo
+
+  if(req.file) req.body.image = req.file.key;
 
   Photo
     .create(req.body)
@@ -82,7 +84,7 @@ function deleteRoute(req, res, next) {
 
 //////////////////////////////// embedded controllers //////////////////////////
 function createCommentRoute(req, res, next) {
-  req.body.createdBy = req.user; // N.B. without this line comments will not works beecause it does not know who is the owner of the comments!!!
+  req.body.createdBy = req.user; // N.B. without this line comments will not works because it does not know who is the owner of the comments!!!
   Photo
     .findById(req.params.id)
     .exec()
