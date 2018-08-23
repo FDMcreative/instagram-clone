@@ -19,14 +19,27 @@
 <div class="row">
 
   <div class="col-sm-6">
+<%# ///////////////////////////// %>
+    <div class="card">
+
+      <div class="card-header">
+        <%= photo.caption %>
+      </div>
+
+      <div class="card-body">
+        <a href="/photos/<%= photo.id %>">
+          <img class="img-fluid" src="<%= photo.imageSRC %>" alt="<%= photo.caption %>">
+        </a>
+
+<%# //////////////////////// %>
 
     <a data-toggle="modal" id="pop" data-target="#imgModal">
       <img class="img-thumbnail img-fluid" src="<%= photo.imageSRC %>" alt="<%= photo.caption %>">
       <h2><%= photo.caption %></h2>
     </a>
 
-    <p>
-      <% while(photo.stars--) { %> &star; <% } %>
+    <p class="yellowStars">
+      <% while(photo.stars--) { %> &starf; <% } %>
     </p>
 
     <ul class="list-group">
@@ -62,4 +75,5 @@
     <% } %>
 
   </div>
+
 </div>
