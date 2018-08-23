@@ -18,31 +18,28 @@
 
 <div class="row">
 
-  <div class="col-sm-6">
-<%# ///////////////////////////// %>
+  <div class="col-md-6">
+
     <div class="card">
 
       <div class="card-header">
         <%= photo.caption %>
+        <small>by <%= photo.stars %></small>
       </div>
 
       <div class="card-body">
-        <a href="/photos/<%= photo.id %>">
+        <a data-toggle="modal" id="pop" data-target="#imgModal" href="/photos/<%= photo.id %>">
           <img class="img-fluid" src="<%= photo.imageSRC %>" alt="<%= photo.caption %>">
         </a>
 
-<%# //////////////////////// %>
+        <p class="yellowStars">
+          <% while(photo.stars--) { %> &starf; <% } %>
+        </p>
+      </div>
 
-    <a data-toggle="modal" id="pop" data-target="#imgModal">
-      <img class="img-thumbnail img-fluid" src="<%= photo.imageSRC %>" alt="<%= photo.caption %>">
-      <h2><%= photo.caption %></h2>
-    </a>
+    </div>
 
-    <p class="yellowStars">
-      <% while(photo.stars--) { %> &starf; <% } %>
-    </p>
-
-    <ul class="list-group">
+    <ul id="comments" class="list-group">
       <li class="list-group-item active">Comments:</li>
       <% photo.comments.forEach((comment) => { %>
         <li class="list-group-item">
@@ -53,7 +50,7 @@
         <% if(locals.isAuthenticated && comment.ownedBy(user)) { %>
           <form method="POST" action="/photos/<%= photo.id %>/comments/<%= comment.id %>">
             <input type="hidden" name="_method" value="DELETE">
-            <button class="btn btn-danger">Delete this comment</button>
+            <button class="btn btn-danger">Delete the comment above</button>
           </form>
         <% } %>
 
@@ -62,9 +59,11 @@
 
     <% if(locals.isAuthenticated) { %>
 
-      <div id="leaveComment">
+      <div class="card">
 
-        <label for="comment">Leave a comment:</label>
+        <div class="card-header">
+          Leave a comment:
+        </div>
 
         <form method="POST" action="/photos/<%= photo.id %>/comments">
           <textarea class="form-control" rows="2" name="content" id="content" placeholder="Comment"></textarea>
@@ -72,7 +71,12 @@
         </form>
 
       </div>
+
     <% } %>
+
+  </div>
+
+  <div class="col-md-6">
 
   </div>
 

@@ -26,10 +26,14 @@ main {
   border: 1px dotted blue;
 }
 
+#comments {
+  margin: 10px 0px;
+}
+
 #leaveComment {
   background-color: white;
   border: 1px solid #e6e6e6;
-  margin: 5px 0;
+  margin: 15px 0;
   padding: 15px;
 }
 
@@ -60,8 +64,11 @@ img {
 
 .card {
   margin: 15px 0px 0px 0px;
-  padding: 10px;
   text-align: center;
+}
+
+.card-header {
+  font-weight: bold;
 }
 
 .whiteBox {

@@ -36,11 +36,11 @@
 
             <div class="row">
 
-              <div class="col align-self-center">
+              <div class="col-6 align-self-center">
                 <a href="/photos/<%= photo.id %>/edit" class="btn btn-primary">Edit</a>
               </div>
 
-              <div class="col align-self-center">
+              <div class="col-6 align-self-center">
                 <form method="POST" action="/photos/<%= photo.id %>">
                   <input type="hidden" name="_method" value="DELETE">
                   <button class="btn btn-danger">Delete</button>
