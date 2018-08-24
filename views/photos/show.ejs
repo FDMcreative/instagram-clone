@@ -39,23 +39,30 @@
 
     </div>
 
-    <ul id="comments" class="list-group">
-      <li class="list-group-item active">Comments:</li>
-      <% photo.comments.forEach((comment) => { %>
-        <li class="list-group-item">
-          <p><%= comment.content %></p>
-          <small>by <%= comment.createdBy.username %></small>
-        </li>
+    <div class="card">
 
-        <% if(locals.isAuthenticated && comment.ownedBy(user)) { %>
-          <form method="POST" action="/photos/<%= photo.id %>/comments/<%= comment.id %>">
-            <input type="hidden" name="_method" value="DELETE">
-            <button class="btn btn-danger">Delete the comment above</button>
-          </form>
-        <% } %>
+      <div class="card-header">
+        Comments:
+      </div>
 
-      <% }) %>
-    </ul>
+      <ul id="comments" class="list-group">
+        <% photo.comments.forEach((comment) => { %>
+          <li class="list-group-item">
+            <p><%= comment.content %></p>
+            <small>by <%= comment.createdBy.username %></small>
+
+            <% if(locals.isAuthenticated && comment.ownedBy(user)) { %>
+              <form method="POST" action="/photos/<%= photo.id %>/comments/<%= comment.id %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-danger">Delete this comment</button>
+              </form>
+            <% } %>
+          </li>
+
+        <% }) %>
+      </ul>
+
+    </div>
 
     <% if(locals.isAuthenticated) { %>
 
@@ -67,7 +74,7 @@
 
         <form method="POST" action="/photos/<%= photo.id %>/comments">
           <textarea class="form-control" rows="2" name="content" id="content" placeholder="Comment"></textarea>
-          <button class="btn btn-primary">Leave a comment</button>
+          <button class="btn btn-primary">Leave your comment</button>
         </form>
 
       </div>

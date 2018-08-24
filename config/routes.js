@@ -6,7 +6,9 @@ const upload = require('../lib/upload');
 const oauth = require('../controllers/oauth');
 const photos = require('../controllers/photos');
 
-router.get('/', (req, res) => res.render('statics/index'));
+// router.get('/', (req, res) => res.render('statics/index'));
+router.route('/')
+.get(photos.random);
 
 router.route('/photos')
   .get(photos.index)

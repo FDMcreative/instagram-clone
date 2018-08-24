@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row whiteBox ">
 
-  <div class="col">
+  <div class="col-sm-6 text-center align-self-center">
 
     <% if(user.image) { %>
         <img class="img-thumbnail" src="<%= user.imageSRC %>" alt="<%= user.username %>">
@@ -10,7 +10,7 @@
 
   </div>
 
-  <div class="col">
+  <div class="col-sm-6 text-center align-self-center">
 
     <h1><%= user.username %></h1>
     <h4><%= user.email %></h4>
@@ -27,37 +27,5 @@
 </div>
 
 <div class="row">
-
-  <% photos.forEach((photo) => { %>
-
-    <div class="col-md-4">
-      <div class="card">
-      <div class ="card-img-top"  alt="<%= photo.caption %>" ></div>
-        <div class="card-block">
-
-          <a href="/photos/<%= photo.id %>">
-            <h4 class="card-title"><%= photo.caption %></h4>
-            <img class="img-fluid" src="<%= photo.imageSRC %>" alt="<%= photo.caption %>">
-          </a>
-
-          <p>
-            <% while(photo.stars--) { %> &star; <% } %>
-          </p>
-
-          <% if(locals.isAuthenticated && photo.ownedBy(user)) { %>
-
-            <a href="/photos/<%= photo.id %>/edit" class="btn btn-primary">Edit</a>
-
-            <form method="POST" action="/photos/<%= photo.id %>">
-              <input type="hidden" name="_method" value="DELETE">
-              <button class="btn btn-danger">Delete</button>
-            </form>
-
-          <% } %>
-
-        </div>
-      </div>
-    </div>
-  <% }) %>
 
 </div>

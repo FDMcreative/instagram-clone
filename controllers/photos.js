@@ -1,5 +1,29 @@
 const Photo = require('../models/photo');
 
+function randomRoute(req, res, next) {
+  // return res.render('statics/index'); //just the Redirect
+
+  // Get the count of all photos
+  Photo
+    .countDocuments()
+    .exec(function (err, count) {
+      // Get a random entry
+      var random = Math.floor(Math.random() * count)
+
+      // Again query all users but only fetch one offset by our random #
+      Photo
+        .findOne()
+        .skip(random)
+        .exec(function (err, randomPhoto) {
+          // Tada! random photo
+          console.log(randomPhoto);
+          res.render('statics/index', { randomPhoto });
+        })
+    })
+
+    // .then((photo) => res.render('statics/index', { photo })) //just the Redirect
+}
+
 function indexRoute(req, res, next) {
   Photo
     .find()
@@ -123,5 +147,7 @@ module.exports = {
   update: updateRoute,
   delete: deleteRoute,
   createComment: createCommentRoute,
-  deleteComment: deleteCommentRoute
+  deleteComment: deleteCommentRoute,
+
+  random: randomRoute
 };
