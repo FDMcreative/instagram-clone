@@ -39,30 +39,34 @@
 
     </div>
 
-    <div class="card">
+    <% if(photo.comments.length !== 0) { %>
 
-      <div class="card-header">
-        Comments:
+      <div class="card">
+
+        <div class="card-header">
+          Comments:
+        </div>
+
+        <ul id="comments" class="list-group">
+          <% photo.comments.forEach((comment) => { %>
+            <li class="list-group-item">
+              <p><%= comment.content %></p>
+              <small>by <%= comment.createdBy.username %></small>
+
+              <% if(locals.isAuthenticated && comment.ownedBy(user)) { %>
+                <form method="POST" action="/photos/<%= photo.id %>/comments/<%= comment.id %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button class="btn btn-danger">Delete this comment</button>
+                </form>
+              <% } %>
+            </li>
+
+          <% }) %>
+        </ul>
+
       </div>
 
-      <ul id="comments" class="list-group">
-        <% photo.comments.forEach((comment) => { %>
-          <li class="list-group-item">
-            <p><%= comment.content %></p>
-            <small>by <%= comment.createdBy.username %></small>
-
-            <% if(locals.isAuthenticated && comment.ownedBy(user)) { %>
-              <form method="POST" action="/photos/<%= photo.id %>/comments/<%= comment.id %>">
-                <input type="hidden" name="_method" value="DELETE">
-                <button class="btn btn-danger">Delete this comment</button>
-              </form>
-            <% } %>
-          </li>
-
-        <% }) %>
-      </ul>
-
-    </div>
+    <% } %>
 
     <% if(locals.isAuthenticated) { %>
 
