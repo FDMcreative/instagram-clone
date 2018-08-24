@@ -4,26 +4,43 @@
 /*footer link color = #003569*/
 /*text grey color = #999*/
 
-body, input {
+body {
+  font-family: 'Karla', sans-serif;
+  background-color: #fafafa;
+  height: 100vh;
+}
+
+input {
   font-family: 'Karla', sans-serif;
   background-color: #fafafa;
 }
 
-ul, li {
+a:link {
+  text-decoration: none;
 
 }
 
-main {
-  border: 1px dotted red;
-  margin: 20px;
+a {
+  color: #003569;
+  font-weight: bold;
 }
 
-#right {
-
+#main {
+  // border: 1px dotted red;
+  margin: 0 auto;
+  padding: 0px;
+  width: 100%;
+  text-align: center;
 }
 
-#footer {
-  border: 1px dotted blue;
+footer {
+  // border: 1px dotted blue;
+  margin-top: 20px;
+  padding-top: 10px;
+  bottom: 0;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  background-color: #fff;
 }
 
 #comments {
@@ -37,6 +54,10 @@ main {
   padding: 15px;
 }
 
+#phones {
+  margin-top: 20px;
+}
+
 a {
   text-decoration: none;
 }
@@ -47,11 +68,20 @@ input {
 }
 
 button {
-  
+
 }
 
 img {
   margin: 5px 0;
+}
+
+.img-thumbnail {
+    background: #003569;
+    border: none;
+}
+
+.navbar {
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .photosNavbar{
@@ -75,10 +105,17 @@ img {
   background-color: white;
   border: 1px solid #e6e6e6;
   padding: 15px;
-  margin: 5px;
+  margin: 15px;
 }
 
 .yellowStars {
   color: gold;
   font-size: 1.5em;
+}
+
+
+@media screen and (max-width:768px) {
+  #phones {
+    display: none;
+  }
 }

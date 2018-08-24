@@ -1,4 +1,14 @@
 const User = require('../models/user');
+const Photo = require('../models/photo');
+
+function showRoute(req, res, next) {
+  Photo
+    .find()
+    .populate('createdBy')
+    .exec()
+    .then((photos) => res.render('registrations/show', { photos }))
+    .catch(next);
+}
 
 function newRoute(req, res) {
   return res.render('registrations/new');
@@ -20,9 +30,9 @@ function createRoute(req, res, next) {
     });
 }
 
-function showRoute(req, res) {
-  return res.render('registrations/show');
-}
+// function showRoute(req, res) {
+//   return res.render('registrations/show');
+// }
 
 function deleteRoute(req, res, next) {
   req.user
