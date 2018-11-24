@@ -41,6 +41,9 @@ router.route('/register')
   .get(registrations.new)
   .post(upload.single('profileImage'), registrations.create);
 
+// router.route('/register/:id/edit')
+//   .get(secureRoute, photos.edit);
+
 router.route('/login')
   .get(sessions.new)
   .post(sessions.create);

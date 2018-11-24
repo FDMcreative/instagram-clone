@@ -15,8 +15,6 @@
     <h1><%= user.username %></h1>
     <h4><%= user.email %></h4>
 
-    <a class="btn btn-primary" href="/photos/new" role="button">Upload a photo</a>
-
     <form method="POST" action="/profile">
       <input type="hidden" name="_method" value="DELETE">
       <button type="button" class="btn btn-danger">Delete Account</button>

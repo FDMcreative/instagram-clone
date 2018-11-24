@@ -27,6 +27,13 @@
 
     </header>
 
+    <div class="jimbo">
+      <span>Enjoy the photos of our users!</span>
+      <% if(locals.isAuthenticated) { %>
+        <button href="/photos/new" class="btn btn-warning">Upload a photo</button>
+      <% } %>
+    </div>
+
     <main id="main" class="container">
       <%- body %>
     </main>

@@ -42,5 +42,8 @@
     "gulp-plumber": "^1.2.0",
     "gulp-sass": "^4.0.2",
     "gulp-sequence": "^1.0.0"
+  },
+  "engines": {
+    "node": "9.11.1"
   }
 }

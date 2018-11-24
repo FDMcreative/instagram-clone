@@ -1,17 +1,3 @@
-<div class="row justify-content-center bg-info text-white">
-
-  <div class="col text-center align-self-center">
-    <h3>Enjoy the photos of our users!</h3>
-  </div>
-
-  <div class="col text-center align-self-center">
-    <% if(locals.isAuthenticated) { %>
-      <a href="/photos/new" class="btn btn-warning">Upload a photo</a>
-    <% } %>
-  </div>
-
-</div>
-
 <div class="row">
 
   <% photos.forEach((photo) => { %>
