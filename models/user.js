@@ -14,6 +14,7 @@ userSchema
   .virtual('imageSRC')
   .get(function getImageSRC() {
     if(!this.image) return null; //or a placeholder profile-image (to be set) in case the user doesn't upload any
+    if(this.image.match(/^http/)) return this.image; //only useful when github login
     return `https://s3.eu-central-1.amazonaws.com/w05d03-instagram-clone/${this.image}`;
   });
 
@@ -22,12 +23,13 @@ userSchema
   .set(function setPasswordConfirmation(passwordConfirmation) {
     this._passwordConfirmation = passwordConfirmation;
   });
+
 //lifecycle hook - mongoose middleware
 userSchema.pre('validate', function checkPassword(next) {
   if(!this.password && !this.githubId) {
     this.invalidate('password', 'required');
   }
-  if(this.isModified('password') && this._passwordConfirmation !== this.password){
+  if(this.isModified('password') && this._passwordConfirmation !== this.password) {
     this.invalidate('passwordConfirmation', 'does not match');
   }
   next();

@@ -16,7 +16,7 @@ function randomRoute(req, res, next) {
         .skip(random)
         .exec(function (err, randomPhoto) {
           // Tada! random photo
-          console.log(randomPhoto);
+          // console.log(randomPhoto);
           res.render('statics/index', { randomPhoto });
         })
     })
@@ -55,6 +55,7 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Photo
     .findById(req.params.id)
+    .populate('createdBy')
     .populate('comments.createdBy') // inside the comments find all the createdBy properties and populate them. This will display the whole object (we don/t really want that...) so now inside the views/show we can type: <%= comment.createdBy.username %>
     .exec()
     .then((photo) => {
