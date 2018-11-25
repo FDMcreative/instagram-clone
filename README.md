@@ -13,6 +13,15 @@ This is an Instagram clone single page app (with some modification to accomodate
 
 ---
 
+#### I made use of:
+
+- _**Mongo**_ - For the database
+- _**Express**_ - For the web-framework
+- _**EJS**_ - For the client-side framework
+- _**Node**_ - For the server-side language
+
+---
+
 #### The following functionalities are present:
 
 - register with a profile image uploaded on AWS
