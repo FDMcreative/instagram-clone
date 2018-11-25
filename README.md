@@ -9,11 +9,11 @@ Created: 09/08/2018 / Last update: 25/11/2018
 # Instagram Clone
 ### *Let's try to create something like Instagram.*
 
--
-
 This is an Instagram clone single page app (with some modification to accomodate my needs and the functionalities I wanted to implement).
 
-The following functionalities are present:
+---
+
+#### The following functionalities are present:
 
 - register with a profile image uploaded on AWS
 - login
@@ -29,9 +29,7 @@ The following functionalities are present:
 - possibility to comment the images
 - edit and delete comments for the user who created them
 
--
-
-Difficulties:
+#### Difficulties:
 
 - Setting up AWS public bucket (policy) to store the uploaded images.
 - Setting up the GitHub oauth (to verify if id and secret need to be changed for every new app).
@@ -41,6 +39,6 @@ Difficulties:
 - Recreating an instagram-clone user experience.
 - use .populate('createdBy') so the object photo will have the username <%= photo.createdBy.username %> to use in the view.
 
-Not implemented:
+#### Not implemented:
 
 - Filter images by username.
