@@ -19,6 +19,8 @@ This is an Instagram clone single page app (with some modification to accomodate
 - _**Express**_ - For the web-framework
 - _**EJS**_ - For the client-side framework
 - _**Node**_ - For the server-side language
+- _**Bootstrap**_
+- _**Gulp**_
 
 ---
 
