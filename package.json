@@ -1,7 +1,7 @@
 {
   "name": "instagram-clone",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is an instagram-like single page app with upload, login and profile functionalities",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -44,6 +44,7 @@
     "gulp-sequence": "^1.0.0"
   },
   "engines": {
-    "node": "9.11.1"
+    "node": "9.11.1",
+    "npm": "6.4.1"
   }
 }

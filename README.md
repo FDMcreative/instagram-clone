@@ -1,4 +1,5 @@
-09/08/2018
+Created: 09/08/2018 / Last update: 25/11/2018
+
 #### gitHub: [gitHub/FDMcreative](https://github.com/FDMcreative/)
 #### website: [FDMcreative.com](http://www.fdmcreative.com) 
 #### email: [federico.delmonte@gmail.com](federico.delmonte@gmail.com)
@@ -6,11 +7,11 @@
 ---
 
 # Instagram Clone
-### *Let's try to create sometihng like Instagram.*
+### *Let's try to create something like Instagram.*
 
 -
 
-This is an instagram clone (with some modification to accomodate my needs and the functionalities I wanted to implement).
+This is an Instagram clone single page app (with some modification to accomodate my needs and the functionalities I wanted to implement).
 
 The following functionalities are present:
 
@@ -40,6 +41,6 @@ Difficulties:
 - Recreating an instagram-clone user experience.
 - use .populate('createdBy') so the object photo will have the username <%= photo.createdBy.username %> to use in the view.
 
-Not working:
+Not implemented:
 
 - Filter images by username.
